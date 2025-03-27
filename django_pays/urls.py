@@ -1,10 +1,10 @@
-from django.conf.urls import url
+from django.urls import path
 from django.db import transaction
 
 from .views import confirm
 
-app_name = 'pays'
+app_name = "pays"
 
 urlpatterns = [
-    url(r'^(?P<slug>[^/]+)/', transaction.atomic(confirm), name='confirm'),
+    path("<slug>/", transaction.atomic(confirm), name="confirm"),
 ]
